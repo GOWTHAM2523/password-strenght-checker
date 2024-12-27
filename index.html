@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Evaluate the security of your password with our Password Strength Checker. Ensure your online safety with instant insights and recommendations.">
+  <meta name="keywords" content="Password Strength Checker, Password Security, Online Safety, Data Protection, Cybersecurity">
+  <meta name="author" content="Developer Gowtham">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Password Strength Checker - Ensure Your Password's Security">
+  <meta property="og:description" content="Check your password strength instantly and get tips to enhance your online security.">
+  <meta property="og:image" content="assets/images/logo.webp">
+  <meta property="og:url" content="https://password.developergowtham.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Password Strength Checker - Ensure Your Password's Security">
+  <meta name="twitter:description" content="Evaluate your password strength and protect your data online.">
+  <meta name="twitter:image" content="assets/images/logo.webp">
+  <meta name="theme-color" content="#007bff">
+  <link rel="canonical" href="https://password.developergowtham.com">
+
+  <!-- Preconnect for faster loading -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <title>Password Strength Checker - Secure Your Online Data</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="assets/css/animated.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo.webp">
+</head>
+
+
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <h4>D<span>G</span></h4>
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#about">About Us</a></li>
+              <li class="scroll-to-section"><a href="#services">CyberShield</a></li>
+              <li class="scroll-to-section"><a href="#portfolio">PassGuard</a></li>
+              <li class="scroll-to-section"><a href="#contact">Message Us</a></li>
+              <li class="scroll-to-section">
+                <div class="main-red-button"><a href="#contact">Contact Now</a></div>
+              </li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <h6>How Secure Is My Password?</h6>
+                <h2> Password <em>Strength</em> Checker</h2>
+                <p>Evaluate the security of your password instantly with our Password Strength Checker.</p>
+                <form id="search" action="#" method="GET">
+                  <fieldset>
+                    <input type="password" id="password" class="form-control" placeholder="Enter your password"
+                      onkeyup="checkStrength()" required>
+                  </fieldset>
+                  <fieldset>
+                    <i class="bi bi-eye icon" id="togglePassword"></i>
+                  </fieldset>
+                </form>
+
+                <div id="strengthIndicator" class="strength-indicator">
+                  <p id="strengthText">Password strength: </p>
+                </div>
+                <div class="copy-container position-relative flex-start">
+                  <i class="bi bi-clipboard" id="copyPassword" style="cursor: pointer;"></i>
+                  <span style="padding-left: 10px;">Copy password instantly! 🚀 </span>
+                  <div id="copyTooltip" class="copy-tooltip">Copied!</div>
+                </div>
+
+                <!-- Time to Crack and Review Sections -->
+                <div id="timeToCrack" class="time-to-crack block-none"></div>
+                <div id="reviewMessage" class="review-message block-none"></div>
+
+              </div>
+            </div>
+           
+            <div class="col-lg-6">
+              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <img src="assets/images/banner-image.jpg" alt="Password image" class="rounded-circle">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" class="about-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <img src="assets/images/profile-image.jpg" alt="developer gowtham" class="rounded">
+          </div>
+        </div>
+        <div class="col-lg-8 align-self-center">
+          <div class="services">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <div class="icon">
+                    <img src="assets/images/full-stack.webp" alt="reporting" class="rounded-circle">
+                  </div>
+                  <div class="right-text">
+                    <h4>Full-Stack Expertise</h4>
+                    <p>2+ years of experience in React, Node.js, WordPress, and Webflow.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+                  <div class="icon">
+                    <img src="assets/images/mobimage.webp" alt="" class="rounded-circle">
+                  </div>
+                  <div class="right-text">
+                    <h4> No-Code/Low-Code Proficiency</h4>
+                    <p>Expert in creating dynamic solutions with no-code and low-code platforms.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
+                  <div class="icon">
+                    <img src="assets/images/nocode.webp" alt="" class="rounded-circle">
+                  </div>
+                  <div class="right-text">
+                    <h4>Mobile App Development</h4>
+                    <p>Skilled in building impactful, user-friendly mobile apps.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="1.1s">
+                  <div class="icon">
+                    <img src="assets/images/collaborativeandcreative.webp" alt="" class="rounded-circle">
+                  </div>
+                  <div class="right-text">
+                    <h4>Collaborative and Creative</h4>
+                    <p>Passionate about teamwork and transforming ideas into digital success.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="services" class="our-services section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div class="left-image">
+            <img src="assets/images/passwordmissing.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-6 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.2s">
+          <div class="section-heading">
+            <h2>How Hackers Hack Your <em>Password</em> &amp; <span>Protect</span> Your Data</h2>
+            <p>Understanding how hackers compromise passwords is crucial to safeguarding your online accounts. Educating
+              yourself about common attack techniques like phishing, brute force attacks, and keylogging can help you
+              take proactive measures to stay secure. Here, we explore key strategies hackers use and how to protect
+              against them.</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="first-bar progress-skill-bar">
+                <h4>Phishing Attacks</h4>
+                <span>80%</span>
+                <div class="filled-bar"></div>
+                <div class="full-bar"></div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="second-bar progress-skill-bar">
+                <h4>Brute Force Techniques</h4>
+                <span>70%</span>
+                <div class="filled-bar"></div>
+                <div class="full-bar"></div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="third-bar progress-skill-bar">
+                <h4>Keylogging & Malware</h4>
+                <span>65%</span>
+                <div class="filled-bar"></div>
+                <div class="full-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="portfolio" class="our-portfolio section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <h2>Tips to <em>Protect</em> Your Password &amp; Keep Your <span>Data Secure</span></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+              <div class="hidden-content">
+                <h4>Use Strong Passwords</h4>
+                <p>Combine upper and lower case letters, numbers, and symbols to create a secure password.</p>
+              </div>
+              <div class="showed-content">
+                <img src="assets/images/strong-passwords.webp" alt="" class="rounded">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+              <div class="hidden-content">
+                <h4>Enable Two-Factor Authentication</h4>
+                <p>Add an extra layer of security by requiring a verification code along with your password.</p>
+              </div>
+              <div class="showed-content">
+                <img src="assets/images/two-factor.webp" alt="" class="rounded">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+              <div class="hidden-content">
+                <h4>Avoid Reusing Passwords</h4>
+                <p>Use unique passwords for each account to minimize risks if one gets compromised.</p>
+              </div>
+              <div class="showed-content">
+                <img src="assets/images/avoidreusingpasswords.webp" alt="" class="rounded">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <a href="#">
+            <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+              <div class="hidden-content">
+                <h4>Be Wary of Phishing</h4>
+                <p>Never click on suspicious links or share your credentials with unverified sources.</p>
+              </div>
+              <div class="showed-content">
+                <img src="assets/images/bewaryofphishing.webp" alt="" class="rounded">
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <div class="section-heading">
+            <h2>Contact Us to Discuss Your Website Needs</h2>
+            <p>We’re here to help you with your website projects, whether you need design, development, or optimization
+              services. Reach out to us for personalized solutions tailored to your requirements.</p>
+            <div class="phone-info">
+              <h4>For any inquiries, Call Us: <span><i class="fa fa-phone"></i> <a
+                    href="tel:8754087294">8754087294</a></span></h4>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <form id="contact" action="" method="post" onsubmit="sendEmail(event)">
+            <div class="row">
+              <div class="col-lg-12">
+                <fieldset>
+                  <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email"
+                    required="">
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <textarea name="message" type="text" class="form-control" id="message" placeholder="Message"
+                    required=""></textarea>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="main-button ">Send Message</button>
+                </fieldset>
+              </div>
+            </div>
+            <div class="contact-dec">
+              <img src="assets/images/contact-decoration.png" alt="">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
+          <p>© 2024 Developer Gowtham. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/imagesloaded.js"></script>
+  <script src="assets/js/templatemo-custom.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+  <!-- Include the latest EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="assets/js/custome.js"></script>
+
+</body>
+
+</html>
